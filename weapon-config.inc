@@ -216,6 +216,13 @@ static stock _WC_IncludeStates() <_ALS : _ALS_go> {}
 	#endif
 #endif
 
+
+#if !defined WC_HEALTHBAR_USE_CALLBACK
+	#define WC_HEALTHBAR_USE_CALLBACK (1)
+#endif
+
+
+
 // Given in OnInvalidWeaponDamage
 enum {
 	WC_NO_ERROR,
@@ -5293,6 +5300,10 @@ static UpdateHealthBar(playerid, bool:force = false, bool:forcesync = false)
 
 		SetPlayerArmour(playerid, float(armour));
 	}
+
+	#if WC_HEALTHBAR_USE_CALLBACK == 1
+		CallLocalFunction("OnUpdateHealthBar", "i", playerid);
+	#endif
 }
 
 static SetHealthBarVisible(playerid, bool:toggle)
