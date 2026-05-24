@@ -5523,7 +5523,7 @@ public WC_SpawnForStreamedIn(playerid)
 		return;
 	}
 
-	SpawnPlayerForWorld(playerid);
+	// SpawnPlayerForWorld(playerid);
 
 	#if defined _Y_ITERATE_LOCAL_VERSION && defined _FOREACH_STREAMED && !defined FOREACH_NO_STREAMED
 	foreach (new i : StreamedPlayer[playerid]) {
