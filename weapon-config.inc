@@ -6686,7 +6686,9 @@ static AddRejectedHit(playerid, damagedid, reason, WEAPON:weapon, i1 = 0, i2 = 0
 
 #if !defined _INC_SKY
 
-static SpawnPlayerForWorld(playerid)
+// "stock" porque la llamada en WC_SpawnForStreamedIn esta comentada: sin
+// usos, el compilador daria warning 203 (simbolo sin uso).
+static stock SpawnPlayerForWorld(playerid)
 {
 	if (!IsPlayerConnected(playerid)) {
 		return 0;
